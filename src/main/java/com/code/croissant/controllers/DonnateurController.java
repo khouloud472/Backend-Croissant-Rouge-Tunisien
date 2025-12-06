@@ -99,4 +99,30 @@ public class DonnateurController {
         // Sauvegarder le don dans la base de données et le retourner
         return donRepository.save(donRequest);
     }
+
+
+    // GET d’un don par id
+@GetMapping("/dons/{donId}")
+public Don getDonById(@PathVariable Long donateurId, @PathVariable Long donId) {
+    return donRepository.findById(donId)
+            .orElseThrow(() -> new RuntimeException("Don non trouvé avec ID : " + donId));
+}
+
+// UPDATE d’un don
+@PutMapping("/dons/{donId}")
+public Don updateDon(
+        @PathVariable Long donateurId,
+        @PathVariable Long donId,
+        @RequestBody Don donRequest) {
+
+    Don existing = donRepository.findById(donId)
+            .orElseThrow(() -> new RuntimeException("Don non trouvé avec ID : " + donId));
+
+    existing.setTypeDon(donRequest.getTypeDon());
+    existing.setMontant(donRequest.getMontant());
+    existing.setDescription(donRequest.getDescription());
+
+    return donRepository.save(existing);
+}
+
 }

@@ -21,7 +21,35 @@ public class Element {
     private String description;
     private String image;
     private String label;
+    private String type;  
+
+    private String created_at;
+    private String updated_at;
+
+    // Correct setters & getters
+
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+
+    public String getDescription() { return description; }
+    public void setDescription(String description) { this.description = description; }
+
+    public String getImage() { return image; }
+    public void setImage(String image) { this.image = image; }
+
+    public String getLabel() { return label; }
+    public void setLabel(String label) { this.label = label; }
+
+    public String getType() { return type; }
+    public void setType(String type) { this.type = type; } 
+
+    public String getCreated_at() { return created_at; }
+    public void setCreated_at(String created_at) { this.created_at = created_at; }
+
+    public String getUpdated_at() { return updated_at; }
+    public void setUpdated_at(String updated_at) { this.updated_at = updated_at; }
 }
+
 
 
 /*
